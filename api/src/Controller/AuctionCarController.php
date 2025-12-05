@@ -13,7 +13,7 @@ class AuctionCarController extends AbstractController
 {
     #[Route('/auction-car/fees')]
     public function home(
-        #[MapQueryParameter] float               $price, // @todo >= 1
+        #[MapQueryParameter] float               $price,
         #[MapQueryParameter] AuctionedCarFeeEnum $carType,
         AuctionedCarFeeCalculatorFactory         $auctionCarFeesFactory
     ): Response
@@ -22,10 +22,10 @@ class AuctionCarController extends AbstractController
         return $this->json([
             "price" => $price,
             "carType" => $carType,
-            "baseBuyerFees" => $auctionCarFees->calculateBaseBuyerFees(),
-            "specialSellerFees" => $auctionCarFees->calculateSpecialSellerFees(),
-            "extraAssociationFees" => $auctionCarFees->calculateAssociationFees(),
-            "storageFees" => $auctionCarFees->calculateStorageFees(),
+            "baseBuyerFee" => $auctionCarFees->calculateBaseBuyerFee(),
+            "specialSellerFee" => $auctionCarFees->calculateSpecialSellerFee(),
+            "extraAssociationFee" => $auctionCarFees->calculateAssociationFee(),
+            "storageFee" => $auctionCarFees->calculateStorageFee(),
             "total" => $auctionCarFees->calculateTotalFees()
         ]);
     }

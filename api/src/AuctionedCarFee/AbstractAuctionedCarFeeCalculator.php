@@ -16,7 +16,7 @@ abstract class AbstractAuctionedCarFeeCalculator
     protected abstract function getMaxBaseFees(): float;
     protected abstract function getSpecialFeesPercentage(): float;
 
-    public function calculateBaseBuyerFees(): float
+    public function calculateBaseBuyerFee(): float
     {
         $fees = $this->price * $this->getBaseFeePercentage();
         $adjustedFees = match (true) {
@@ -27,7 +27,7 @@ abstract class AbstractAuctionedCarFeeCalculator
         return round($adjustedFees, 2);
     }
 
-    public function calculateAssociationFees(): float
+    public function calculateAssociationFee(): float
     {
         $amount = match (true) {
             $this->price >= 1 && $this->price <= 500 => 5,
@@ -39,12 +39,12 @@ abstract class AbstractAuctionedCarFeeCalculator
         return round($amount, 2);
     }
 
-    public function calculateSpecialSellerFees(): float
+    public function calculateSpecialSellerFee(): float
     {
         return round($this->price * $this->getSpecialFeesPercentage(),2);
     }
 
-    public function calculateStorageFees(): float
+    public function calculateStorageFee(): float
     {
         return round($this->getStorageFees(),2);
     }
@@ -53,10 +53,10 @@ abstract class AbstractAuctionedCarFeeCalculator
     {
         $sum = array_sum([
             $this->price,
-            $this->calculateBaseBuyerFees(),
-            $this->calculateSpecialSellerFees(),
-            $this->calculateAssociationFees(),
-            $this->calculateStorageFees()
+            $this->calculateBaseBuyerFee(),
+            $this->calculateSpecialSellerFee(),
+            $this->calculateAssociationFee(),
+            $this->calculateStorageFee()
         ]);
         return round($sum, 2);
     }

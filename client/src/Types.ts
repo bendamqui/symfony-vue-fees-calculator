@@ -14,9 +14,9 @@ export interface FeeCalculatorPayload {
 export interface FeeCalculatorResult {
   price: number
   carType: CarType
-  baseBuyerFees: number
-  specialSellerFees: number
-  extraAssociationFees: number
-  storageFees: number
+  baseBuyerFee: number
+  specialSellerFee: number
+  extraAssociationFee: number
+  storageFee: number
   total: number
 }

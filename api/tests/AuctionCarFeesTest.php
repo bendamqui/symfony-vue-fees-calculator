@@ -13,10 +13,10 @@ class AuctionCarFeesTest extends TestCase
     public function testSomething(AuctionedCarFeeEnum $type, float $price, array $expected)
     {
         $auctionCarFees = new AuctionedCarFeeCalculatorFactory()->make($type, $price);
-        $this->assertEquals($expected["baseBuyerFees"], $auctionCarFees->calculateBaseBuyerFees());
-        $this->assertEquals($expected["specialSellerFees"], $auctionCarFees->calculateSpecialSellerFees());
-        $this->assertEquals($expected["associationFees"], $auctionCarFees->calculateAssociationFees());
-        $this->assertEquals($expected["storageFees"], $auctionCarFees->calculateStorageFees());
+        $this->assertEquals($expected["baseBuyerFee"], $auctionCarFees->calculateBaseBuyerFee());
+        $this->assertEquals($expected["specialSellerFee"], $auctionCarFees->calculateSpecialSellerFee());
+        $this->assertEquals($expected["associationFee"], $auctionCarFees->calculateAssociationFee());
+        $this->assertEquals($expected["storageFee"], $auctionCarFees->calculateStorageFee());
         $this->assertEquals($expected["total"], $auctionCarFees->calculateTotalFees());
     }
 
@@ -107,10 +107,10 @@ class AuctionCarFeesTest extends TestCase
     ): array
     {
         return [
-            "baseBuyerFees" => $baseBuyerFees,
-            "specialSellerFees" => $specialSellerFees,
-            "associationFees" => $associationFees,
-            "storageFees" => $storageFees,
+            "baseBuyerFee" => $baseBuyerFees,
+            "specialSellerFee" => $specialSellerFees,
+            "associationFee" => $associationFees,
+            "storageFee" => $storageFees,
             "total" => $total
         ];
     }
