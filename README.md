@@ -14,6 +14,7 @@ docker-compose run api composer install
 docker-compose up
 cd client
 nvm use
+npm install
 npm run dev
 
 # Running the tests

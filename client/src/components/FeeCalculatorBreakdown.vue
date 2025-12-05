@@ -40,7 +40,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { defineProps } from 'vue'
+
 import type { FeeCalculatorResult } from '@/Types.ts'
 
 interface Props {
