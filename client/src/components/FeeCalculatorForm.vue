@@ -34,9 +34,7 @@ const payload = ref<FeeCalculatorPayload>({
   carType: 'standard',
 })
 
-const isValidPrice = (price: number) => {
-  return price >= 1
-}
+const isValidPrice = (price: number) => price >= 1
 
 const onChange = () => {
   if (isValidPrice(payload.value.price)) {
