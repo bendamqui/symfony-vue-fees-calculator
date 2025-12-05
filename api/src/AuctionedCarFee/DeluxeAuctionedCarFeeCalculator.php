@@ -1,7 +1,7 @@
 <?php
-namespace App\AuctionCarFees;
+namespace App\AuctionedCarFee;
 
-class DeluxeAuctionCarFees extends AbstractAuctionCarFees implements IAuctionCarFees
+class DeluxeAuctionedCarFeeCalculator extends AbstractAuctionedCarFeeCalculator implements AuctionedCarFeeCalculatorInterface
 {
     protected function getStorageFees(): float
     {

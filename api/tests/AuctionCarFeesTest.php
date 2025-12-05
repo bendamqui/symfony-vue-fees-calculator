@@ -2,17 +2,17 @@
 
 namespace App\Tests;
 
-use App\AuctionCarFees\AuctionCarFeesEnum;
-use App\AuctionCarFees\AuctionCarFeesFactory;
+use App\AuctionedCarFee\AuctionedCarFeeEnum;
+use App\AuctionedCarFee\AuctionedCarFeeCalculatorFactory;
 use PHPUnit\Framework\TestCase;
 use PHPUnit\Framework\Attributes\DataProvider;
 
 class AuctionCarFeesTest extends TestCase
 {
     #[DataProvider('carsDataProvider')]
-    public function testSomething(AuctionCarFeesEnum $type, float $price, array $expected)
+    public function testSomething(AuctionedCarFeeEnum $type, float $price, array $expected)
     {
-        $auctionCarFees = new AuctionCarFeesFactory()->make($type, $price);
+        $auctionCarFees = new AuctionedCarFeeCalculatorFactory()->make($type, $price);
         $this->assertEquals($expected["baseBuyerFees"], $auctionCarFees->calculateBaseBuyerFees());
         $this->assertEquals($expected["specialSellerFees"], $auctionCarFees->calculateSpecialSellerFees());
         $this->assertEquals($expected["associationFees"], $auctionCarFees->calculateAssociationFees());
@@ -24,7 +24,7 @@ class AuctionCarFeesTest extends TestCase
     {
         return [
             [
-                "type" => AuctionCarFeesEnum::Standard,
+                "type" => AuctionedCarFeeEnum::Standard,
                 "price" => 398.00,
                 "expected" => self::makeCarFees(
                     39.80,
@@ -36,7 +36,7 @@ class AuctionCarFeesTest extends TestCase
                 )
             ],
             [
-                "type" => AuctionCarFeesEnum::Standard,
+                "type" => AuctionedCarFeeEnum::Standard,
                 "price" => 501.00,
                 "expected" => self::makeCarFees(
                     50.00,
@@ -48,7 +48,7 @@ class AuctionCarFeesTest extends TestCase
                 )
             ],
             [
-                "type" => AuctionCarFeesEnum::Standard,
+                "type" => AuctionedCarFeeEnum::Standard,
                 "price" => 57.00,
                 "expected" => self::makeCarFees(
                     10.00,
@@ -60,7 +60,7 @@ class AuctionCarFeesTest extends TestCase
                 )
             ],
             [
-                "type" => AuctionCarFeesEnum::Deluxe,
+                "type" => AuctionedCarFeeEnum::Deluxe,
                 "price" => 1800.00,
                 "expected" => self::makeCarFees(
                     180.00,
@@ -72,7 +72,7 @@ class AuctionCarFeesTest extends TestCase
                 )
             ],
             [
-                "type" => AuctionCarFeesEnum::Standard,
+                "type" => AuctionedCarFeeEnum::Standard,
                 "price" => 1100,
                 "expected" => self::makeCarFees(
                     50.00,
@@ -84,7 +84,7 @@ class AuctionCarFeesTest extends TestCase
                 )
             ],
             [
-                "type" => AuctionCarFeesEnum::Deluxe,
+                "type" => AuctionedCarFeeEnum::Deluxe,
                 "price" => 1000000.00,
                 "expected" => self::makeCarFees(
                     200.00,

@@ -1,7 +1,7 @@
 <?php
-namespace App\AuctionCarFees;
+namespace App\AuctionedCarFee;
 
-enum AuctionCarFeesEnum: string
+enum AuctionedCarFeeEnum: string
 {
     case Standard = "standard";
     case Deluxe = "deluxe";

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\AuctionCarFees;
+namespace App\AuctionedCarFee;
 
-interface IAuctionCarFees
+interface AuctionedCarFeeCalculatorInterface
 {
     public function calculateBaseBuyerFees(): float;
     public function calculateSpecialSellerFees(): float;

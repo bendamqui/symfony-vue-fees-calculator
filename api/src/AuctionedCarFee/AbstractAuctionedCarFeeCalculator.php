@@ -1,8 +1,8 @@
 <?php
 
-namespace App\AuctionCarFees;
+namespace App\AuctionedCarFee;
 
-abstract class AbstractAuctionCarFees
+abstract class AbstractAuctionedCarFeeCalculator
 {
     public function __construct(protected readonly float $price){}
 

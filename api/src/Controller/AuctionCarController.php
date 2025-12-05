@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
-use App\AuctionCarFees\AuctionCarFeesEnum;
-use App\AuctionCarFees\AuctionCarFeesFactory;
+use App\AuctionedCarFee\AuctionedCarFeeEnum;
+use App\AuctionedCarFee\AuctionedCarFeeCalculatorFactory;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -13,9 +13,9 @@ class AuctionCarController extends AbstractController
 {
     #[Route('/auction-car/fees')]
     public function home(
-        #[MapQueryParameter] float $price, // @todo >= 1
-        #[MapQueryParameter] AuctionCarFeesEnum $carType,
-        AuctionCarFeesFactory $auctionCarFeesFactory
+        #[MapQueryParameter] float               $price, // @todo >= 1
+        #[MapQueryParameter] AuctionedCarFeeEnum $carType,
+        AuctionedCarFeeCalculatorFactory         $auctionCarFeesFactory
     ): Response
     {
         $auctionCarFees = $auctionCarFeesFactory->make($carType, $price);
