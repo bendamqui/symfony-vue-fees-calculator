@@ -7,7 +7,7 @@
  - [x] Handle AuctionFeeCar calculation
  - [x] Consolidate naming
  - [x] Write Unit tests
- - [ ] Widen provided test dataset
+ - [ ] ping route
 
 
 ## Client vue
@@ -17,10 +17,10 @@
  - [x] Extract some reusable component from web page
  - [x] Declare payload/response interface for auction car fees
  - [x] Extract smaller components from the main page
- - [ ] debounce, freeze form etc
  - [x] display result
- - [ ] file with the node version
- - [ ] catch handle fetch error
+ - [x] file with the node version
+ - [x] catch handle fetch error
+ - [x] page title
 
 # TODO
 - [x] gitignore, vendor etc
