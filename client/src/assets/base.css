@@ -100,3 +100,33 @@ input[type="number"]:focus, select:focus {
   text-align: right;
   min-width: 80px; /* Ensures values align correctly */
 }
+
+.error {
+  /* Color Scheme */
+  background-color: #ffe0e6; /* Very light pink/red background (subtle) */
+  border: 1px solid #ff99aa; /* Soft red border */
+  color: #cc0033; /* Darker red text for high contrast and readability */
+
+  /* Layout & Spacing */
+  padding: 15px 20px; /* Slightly more padding, consistent with card elements */
+  margin-bottom: 20px; /* Separates the error from other content */
+  margin-top: 10px; /* Adds space above the error */
+
+  /* Shape & Effect */
+  border-radius: 8px; /* Slightly rounded corners, similar to inputs/card */
+  box-shadow: 0 2px 4px rgba(255, 0, 0, 0.1); /* Subtle red-tinted shadow */
+
+  /* Typography */
+  font-family: Arial, sans-serif; /* Inherits the main font */
+  font-size: 1em; /* Standard font size */
+  font-weight: bold; /* Ensures the message is noticed */
+  line-height: 1.4; /* Better readability */
+  text-align: left; /* Aligns left for typical message structure */
+}
+
+/* Optional: Add an icon or prefix for extra clarity */
+.error::before {
+  content: "🚨 ";
+  font-size: 1.2em;
+  margin-right: 5px;
+}
