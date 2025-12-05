@@ -8,13 +8,24 @@ auctioned car fees.
 - **Node.js**: to run the Vue.js 3
 
 # Installation
-clone and cd to root of the project
+
+**Clone the repository and go to the project root:**  
+```bash
+git clone git@github.com:bendamqui/symfony-vue-fees-calculator.git
+cd symfony-vue-fees-calculator
+```
+
+**Build and start the backend container:**  
+```bash
 docker-compose build
 docker-compose run api composer install
 docker-compose up
+```
+
+**Set up the frontend:**  
+```bash
 cd client
 nvm use
 npm install
 npm run dev
-
-# Running the tests
+```
