@@ -7,7 +7,6 @@
  - [x] Handle AuctionFeeCar calculation
  - [x] Consolidate naming
  - [x] Write Unit tests
- - [ ] ping route
 
 
 ## Client vue
@@ -21,10 +20,11 @@
  - [x] file with the node version
  - [x] catch handle fetch error
  - [x] page title
+ - [x] Show loading state for when the server is not warmed-up
 
 # TODO
 - [x] gitignore, vendor etc
-- [ ] write the installation instruction
+- [x] write the installation instruction
 
 
 # Notes
