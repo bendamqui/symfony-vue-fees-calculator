@@ -130,3 +130,65 @@ input[type="number"]:focus, select:focus {
   font-size: 1.2em;
   margin-right: 5px;
 }
+
+
+/* ==========================================================
+   CSS for MINIMALIST PARAGRAPH-STYLE LOADER
+   ========================================================== */
+
+/* 1. Loader Container Styling */
+.inline-loader {
+  /* CRITICAL FOR STABILITY: Reserves a small paragraph-like height */
+  height: 1.4em; /* Height of about one line of text */
+  line-height: 1.4em; /* Vertically centers the text within the small height */
+  margin: 0; /* Remove unnecessary vertical margins */
+  padding: 0;
+
+  /* Text Style */
+  text-align: left; /* Aligns like a normal paragraph */
+  font-size: 1em; /* Matches surrounding paragraph text */
+  color: #555;
+  font-weight: normal;
+
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Style the text part (the dots themselves) */
+.inline-loader span {
+  font-weight: bold;
+  color: #007bff; /* Use your theme color for the dots */
+}
+
+/* 2. State Classes (Anti-Shift Fix) */
+.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+/* 3. DOTS ANIMATION STYLES */
+
+/* The individual dots */
+.inline-loader span {
+  opacity: 0;
+  animation: inline-dot-pulse 0.8s infinite linear;
+  display: inline-block; /* Ensure dots animate correctly */
+}
+
+/* Delay the animation for each dot to create the sequence */
+.dot-2 {
+  animation-delay: 0.2s;
+}
+
+.dot-3 {
+  animation-delay: 0.4s;
+}
+
+/* 4. The Keyframes (Renamed for this specific class) */
+@keyframes inline-dot-pulse {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
