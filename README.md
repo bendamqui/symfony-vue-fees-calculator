@@ -29,3 +29,8 @@ nvm use
 npm install
 npm run dev
 ```
+
+**Run the phpunit tests:**
+```bash
+docker-compose run api php bin/phpunit
+```
