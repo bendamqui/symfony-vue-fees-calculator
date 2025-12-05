@@ -2,13 +2,19 @@
 
 namespace App\AuctionedCarFee;
 
+use InvalidArgumentException;
+
 abstract class AbstractAuctionedCarFeeCalculator
 {
-    public function __construct(protected readonly float $price){}
+    public function __construct(protected readonly float $price){
+        if ($this->price < 1) {
+            throw new InvalidArgumentException("The price must be greater or equal than 1");
+        }
+    }
 
     /**
-     * Abstract functions that don't need to be part of the interface but that make sure
-     * the children provide a way to access the data required to perform the calculations.
+     * Abstract functions that don't need to be part of the interface but force
+     * the children to provide a way to access the data required to perform the calculations.
      */
     protected abstract function getStorageFee(): float;
     protected abstract function getBaseFeePercentage(): float;
@@ -34,7 +40,6 @@ abstract class AbstractAuctionedCarFeeCalculator
             $this->price > 500 && $this->price <= 1000 => 10,
             $this->price > 1000 && $this->price <= 3000 => 15,
             $this->price > 3000 => 20,
-            default => 5
         };
         return round($amount, 2);
     }

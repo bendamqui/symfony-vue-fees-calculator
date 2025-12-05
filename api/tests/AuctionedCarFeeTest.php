@@ -6,11 +6,18 @@ use App\AuctionedCarFee\AuctionedCarFeeEnum;
 use App\AuctionedCarFee\AuctionedCarFeeCalculatorFactory;
 use PHPUnit\Framework\TestCase;
 use PHPUnit\Framework\Attributes\DataProvider;
+use InvalidArgumentException;
 
-class AuctionCarFeesTest extends TestCase
+class AuctionedCarFeeTest extends TestCase
 {
+    public function testPriceShouldBeGreaterOrEqualThanOne()
+    {
+        $this->expectException(InvalidArgumentException::class);
+        new AuctionedCarFeeCalculatorFactory()->make(AuctionedCarFeeEnum::Standard, 0);
+    }
+
     #[DataProvider('carsDataProvider')]
-    public function testSomething(AuctionedCarFeeEnum $type, float $price, array $expected)
+    public function testFeesCalculation(AuctionedCarFeeEnum $type, float $price, array $expected)
     {
         $auctionCarFees = new AuctionedCarFeeCalculatorFactory()->make($type, $price);
         $this->assertEquals($expected["baseBuyerFee"], $auctionCarFees->calculateBaseBuyerFee());
