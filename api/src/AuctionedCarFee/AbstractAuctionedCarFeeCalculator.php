@@ -10,18 +10,18 @@ abstract class AbstractAuctionedCarFeeCalculator
      * Abstract functions that don't need to be part of the interface but that make sure
      * the children provide a way to access the data required to perform the calculations.
      */
-    protected abstract function getStorageFees(): float;
+    protected abstract function getStorageFee(): float;
     protected abstract function getBaseFeePercentage(): float;
-    protected abstract function getMinBaseFees(): float;
-    protected abstract function getMaxBaseFees(): float;
-    protected abstract function getSpecialFeesPercentage(): float;
+    protected abstract function getMinBaseFee(): float;
+    protected abstract function getMaxBaseFee(): float;
+    protected abstract function getSpecialFeePercentage(): float;
 
     public function calculateBaseBuyerFee(): float
     {
         $fees = $this->price * $this->getBaseFeePercentage();
         $adjustedFees = match (true) {
-            $fees <= $this->getMinBaseFees() => $this->getMinBaseFees(),
-            $fees >= $this->getMaxBaseFees() => $this->getMaxBaseFees(),
+            $fees <= $this->getMinBaseFee() => $this->getMinBaseFee(),
+            $fees >= $this->getMaxBaseFee() => $this->getMaxBaseFee(),
             default => $fees
         };
         return round($adjustedFees, 2);
@@ -41,12 +41,12 @@ abstract class AbstractAuctionedCarFeeCalculator
 
     public function calculateSpecialSellerFee(): float
     {
-        return round($this->price * $this->getSpecialFeesPercentage(),2);
+        return round($this->price * $this->getSpecialFeePercentage(),2);
     }
 
     public function calculateStorageFee(): float
     {
-        return round($this->getStorageFees(),2);
+        return round($this->getStorageFee(),2);
     }
 
     public function calculateTotalFees(): float

@@ -13,23 +13,23 @@
     <hr />
 
     <div class="fee-item">
-      <span class="fee-name">Base Buyer Fees</span>
+      <span class="fee-name">Base Buyer Fee</span>
       <span class="fee-value" id="baseFees-result">{{ result?.baseBuyerFee.toFixed(2) }}</span>
     </div>
     <div class="fee-item">
-      <span class="fee-name">Special Seller Fees</span>
+      <span class="fee-name">Special Seller Fee</span>
       <span class="fee-value" id="specialSellerFees-result">{{
         result?.specialSellerFee.toFixed(2)
       }}</span>
     </div>
     <div class="fee-item">
-      <span class="fee-name">Extra Association Fees</span>
+      <span class="fee-name">Extra Association Fee</span>
       <span class="fee-value" id="extraAssociationFees-result">{{
         result?.extraAssociationFee.toFixed(2)
       }}</span>
     </div>
     <div class="fee-item">
-      <span class="fee-name">Storage Fees</span>
+      <span class="fee-name">Storage Fee</span>
       <span class="fee-value" id="storageFees-result">{{ result?.storageFee.toFixed(2) }}</span>
     </div>
 
@@ -40,7 +40,6 @@
   </div>
 </template>
 <script setup lang="ts">
-
 import type { FeeCalculatorResult } from '@/Types.ts'
 
 interface Props {

@@ -20,7 +20,7 @@ const error = ref('')
 
 const fetchFee = async (payload: FeeCalculatorPayload) => {
   const response = await fetch(
-    `/api/auction-car/fees?price=${payload.price}&carType=${payload.carType}`,
+    `/api/auctioned-car/fees?price=${payload.price}&carType=${payload.carType}`,
     {
       headers: { 'Content-Type': 'application/json' },
     },
